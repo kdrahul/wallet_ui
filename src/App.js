@@ -5,8 +5,12 @@ import Register from './templates/register';
 import Store from './templates/store';
 import Dashboard from './templates/dashboard';
 import Navbar from './components/navbar';
+import { Client, resources } from 'coinbase-commerce-node';
+import { cors } from 'cors';
 
 const App = () => {
+    Client.init(process.env.REACT_APP_API_KEY);
+  // const { Charge } = resources;
   return (
     <div className="container-fluid">
       <Navbar />
@@ -19,6 +23,6 @@ const App = () => {
       </Switch>
     </div>
   );
-}
+};
 
 export default App;
