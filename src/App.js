@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import Home from './templates/home';
+import Login from './templates/login';
+import Register from './templates/register';
+import Store from './templates/store';
+import Dashboard from './templates/dashboard';
+import Navbar from './components/navbar';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid">
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/store" exact component={Store} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/dashboard" exact component={Dashboard} />
+      </Switch>
     </div>
   );
 }
