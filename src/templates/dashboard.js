@@ -15,22 +15,34 @@ const Dashboard = () => {
             class="nav-link active"
             id="v-pills-home-tab"
             data-bs-toggle="pill"
-            data-bs-target="#v-pills-home"
+            data-bs-target="#overview"
             type="button"
             role="tab"
-            aria-controls="v-pills-home"
+            aria-controls="overview"
             aria-selected="true"
           >
             Overview
           </button>
           <button
             class="nav-link"
-            id="v-pills-profile-tab"
+            id="wallet_tab"
             data-bs-toggle="pill"
-            data-bs-target="#v-pills-profile"
+            data-bs-target="#wallet"
             type="button"
             role="tab"
-            aria-controls="v-pills-profile"
+            aria-controls="wallet"
+            aria-selected="false"
+          >
+            Wallet
+          </button>
+          <button
+            class="nav-link"
+            id="v-pills-profile-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#transactions"
+            type="button"
+            role="tab"
+            aria-controls="transactions"
             aria-selected="false"
           >
             Transactions
@@ -39,10 +51,10 @@ const Dashboard = () => {
             class="nav-link"
             id="v-pills-messages-tab"
             data-bs-toggle="pill"
-            data-bs-target="#v-pills-messages"
+            data-bs-target="#coin_details"
             type="button"
             role="tab"
-            aria-controls="v-pills-messages"
+            aria-controls="coin_details"
             aria-selected="false"
           >
             Coin Details
@@ -51,10 +63,10 @@ const Dashboard = () => {
             class="nav-link"
             id="v-pills-settings-tab"
             data-bs-toggle="pill"
-            data-bs-target="#v-pills-settings"
+            data-bs-target="#profile"
             type="button"
             role="tab"
-            aria-controls="v-pills-settings"
+            aria-controls="profile"
             aria-selected="false"
           >
             Profile
@@ -65,33 +77,41 @@ const Dashboard = () => {
         <div class="tab-content" id="v-pills-tabContent">
           <div
             class="tab-pane fade show active"
-            id="v-pills-home"
+            id="overview"
             role="tabpanel"
-            aria-labelledby="v-pills-home-tab"
+            aria-labelledby="overview"
           >
             <MarketOverview />
           </div>
           <div
             class="tab-pane fade"
-            id="v-pills-profile"
+            id="transactions"
             role="tabpanel"
-            aria-labelledby="v-pills-profile-tab"
+            aria-labelledby="transactions"
           >
             <TransactionLog />
           </div>
           <div
             class="tab-pane fade"
-            id="v-pills-messages"
+            id="wallet"
             role="tabpanel"
-            aria-labelledby="v-pills-messages-tab"
+            aria-labelledby="wallet"
           >
             ...
           </div>
           <div
             class="tab-pane fade"
-            id="v-pills-settings"
+            id="coin_details"
             role="tabpanel"
-            aria-labelledby="v-pills-settings-tab"
+            aria-labelledby="coin_details"
+          >
+            ...
+          </div>
+          <div
+            class="tab-pane fade"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile"
           >
             ...
           </div>
