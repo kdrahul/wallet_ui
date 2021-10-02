@@ -2,6 +2,9 @@
 // Store must contain items that are on sale in card form
 // Items must have a title, a sub title, a buy button, a thumbnail of the item if possible
 const Store = () => {
+    const buying = async () => {
+
+    };
   const details = [
     { id: '1', title: 'Cochela', price: '1000', expiresOn: '2021-12-12' },
     { id: '2', title: 'Sunburn', price: '600', expiresOn: '2020-01-11' },
@@ -16,7 +19,7 @@ const Store = () => {
             <h3>{dets.title}</h3>
             <h6>{dets.price}</h6>
             <span>{dets.expiresOn}</span>
-            <button className="btn btn-primary">Buy</button>
+            <button className="btn btn-primary" onClick={buying}>Buy</button>
           </div>
         );
       })}
