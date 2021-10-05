@@ -1,21 +1,20 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 const Login = () => {
-  const [uname, setUname] = useState('');
-  const [pass, setPass] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-    const history = useHistory();
+  const credentials = {
+    user_id: '',
+    password: '',
+  };
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(uname);
-    console.log(pass);
-      setIsSubmitted(true);
-      if(isSubmitted) {
-        return history.push('/');
-      }
+    console.log(credentials);
+    setIsSubmitted(true);
+    return history.push('/');
   };
   return (
-    <div>
+    <div className="container">
       <div className="modal-body">
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -24,7 +23,7 @@ const Login = () => {
               type="text"
               className="form-control"
               name="email"
-              onChange={(e) => setUname(e.target.value)}
+              onChange={(e) => (credentials.user_id = e.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -33,7 +32,7 @@ const Login = () => {
               type="text"
               className="form-control"
               name="password"
-              onChange={(e) => setPass(e.target.value)}
+              onChange={(e) => (credentials.password = e.target.value)}
             />
           </div>
 
