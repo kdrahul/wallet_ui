@@ -1,6 +1,6 @@
 const Checkout = ({ location }) => {
-  console.log(location.state.data[0]);
-  const data = location.state.data[0];
+  console.log(location.state.data);
+  const data = location.state.data;
   return (
     <div className="container">
       <span className="display-6 py-3">Checkout Details</span>
