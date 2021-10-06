@@ -75,10 +75,10 @@ const Store = () => {
 
   };
   return (
-    <div className="row row-cols-4">
+    <div className="row">
       {items.map((dets) => {
         return (
-          <div className="col">
+          <div className="col-md-4 col-lg-3 col-sm-12 col-xs-12">
             <div className="card p-3" key={dets._id}>
               <span className="display-6">{dets.name}</span>
               <span className="text-muted text-end p-2">{dets.description}</span>
