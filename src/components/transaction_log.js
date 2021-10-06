@@ -56,7 +56,9 @@ const TransactionLog = () => {
                 {items.type === 'charge:resolved' && (
                   <td className="text-warning">Resolved</td>
                 )}
-                <a className="btn text-primary" href={items.data.hosted_url}>Pay Now</a>
+                <div className="py-2">
+                <a className="btn btn-outline-primary" href={items.data.hosted_url}>Pay Now</a>
+                </div>
               </tr>
             );
           })}

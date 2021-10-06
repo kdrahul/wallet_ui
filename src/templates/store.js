@@ -84,7 +84,7 @@ const Store = () => {
               <span className="text-muted text-end p-2">{dets.description}</span>
               <span className="text-muted text-end p-2">{dets.datetime}</span>
               <button
-                className="btn btn-primary"
+                className="btn btn-outline-primary"
                 onClick={() => {
                   createCharge(dets);
                 }}
