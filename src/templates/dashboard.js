@@ -23,7 +23,7 @@ const Dashboard = () => {
           >
             Overview
           </button>
-          <button
+      {/*<button
             class="nav-link"
             id="wallet_tab"
             data-bs-toggle="pill"
@@ -34,7 +34,7 @@ const Dashboard = () => {
             aria-selected="false"
           >
             Wallet
-          </button>
+          </button> */}
           <button
             class="nav-link"
             id="v-pills-profile-tab"

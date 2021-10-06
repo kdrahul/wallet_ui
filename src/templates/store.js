@@ -1,25 +1,97 @@
 // Store is a page where people buy items they desire which leads to payment gateway.
 // Store must contain items that are on sale in card form
 // Items must have a title, a sub title, a buy button, a thumbnail of the item if possible
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 const Store = () => {
-    const buying = async () => {
+  const [items, setItems] = useState([]);
 
+  const [charge, setCharge] = useState([]);
+    const history = useHistory();
+  const fetchData = async () => {
+    const result = await axios
+      .get('https://coinbasewallet.herokuapp.com/product')
+      .then((response) => {
+          console.log("Product Response Data");
+        console.log(response);
+          return response.data;
+      })
+      .catch((err) => console.log(err));
+      setItems(result);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const createCharge = async (chosen_item) => {
+    // Fetch all data
+    // const purchase_item = {
+    //   name: 'Youtube Fan Fare',
+    //   description: 'A fan fare for youtubers fans',
+    //   pricing_type: 'fixed_price',
+    //   local_price: {
+    //     amount: 400,
+    //     currency: 'INR',
+    //   },
+    //   metadata: {
+    //     user: 'Rahul',
+    //     starts_at: '2021-04-05 12:00:00',
+    //   },
+    // };
+    const purchase_item = {
+      name: chosen_item.name,
+      description: chosen_item.description,
+      pricing_type: 'fixed_price',
+      local_price: {
+        amount: chosen_item.price,
+        currency: 'INR',
+      },
+      metadata: {
+        user: 'Rahul',
+        starts_at: chosen_item.datetime,
+      },
     };
-  const details = [
-    { id: '1', title: 'Cochela', price: '1000', expiresOn: '2021-12-12' },
-    { id: '2', title: 'Sunburn', price: '600', expiresOn: '2020-01-11' },
-    { id: '3', title: 'YTFF', price: '400', expiresOn: '2020-05-12' },
-    { id: '4', title: 'DJ Night @ BIT', price: '100', expiresOn: '2021-08-05' },
-  ];
+    const response = await axios
+      .post(
+        'https://coinbasewallet.herokuapp.com/payment/charge',
+
+        purchase_item,
+        { headers: { 'Content-type': 'application/json; charset=UTF-8' } }
+      )
+      .then((response) => {
+          console.log("Charge Response Data");
+          console.log(response.data);
+          return response.data;
+      })
+      .catch((err) => console.log(err));
+      setCharge(response);
+
+      console.log("Charge Data");
+      console.log(response);
+    // Redirect back
+      JSON.stringify(response)
+     history.push({pathname: '/checkout', state:{data:response}}); 
+
+  };
   return (
-    <div>
-      {details.map((dets) => {
+    <div className="row row-cols-4">
+      {items.map((dets) => {
         return (
-          <div>
-            <h3>{dets.title}</h3>
-            <h6>{dets.price}</h6>
-            <span>{dets.expiresOn}</span>
-            <button className="btn btn-primary" onClick={buying}>Buy</button>
+          <div className="col">
+            <div className="card" key={dets._id}>
+              <h3 className="">{dets.name}</h3>
+              <h6>{dets.price}</h6>
+              <span className="text-muted">{dets.datetime}</span>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  createCharge(dets);
+                }}
+              >
+                Buy
+              </button>
+            </div>
           </div>
         );
       })}
