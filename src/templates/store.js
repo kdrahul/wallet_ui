@@ -79,10 +79,10 @@ const Store = () => {
       {items.map((dets) => {
         return (
           <div className="col">
-            <div className="card" key={dets._id}>
-              <h3 className="">{dets.name}</h3>
-              <h6>{dets.price}</h6>
-              <span className="text-muted">{dets.datetime}</span>
+            <div className="card p-3" key={dets._id}>
+              <span className="display-6">{dets.name}</span>
+              <span className="text-muted text-end p-2">{dets.description}</span>
+              <span className="text-muted text-end p-2">{dets.datetime}</span>
               <button
                 className="btn btn-primary"
                 onClick={() => {
