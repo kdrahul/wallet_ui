@@ -20,7 +20,7 @@ const TransactionLog = () => {
   return (
     <div>
       <p className="display-6">Transaction Details</p>
-      <table className="table table-hover table-borderless">
+      <table className="table table-hover table-borderless table-responsive">
         <thead>
           <tr>
             <th scope="col">#</th>

@@ -1,5 +1,6 @@
 import MarketOverview from '../components/marketoverview';
 import TransactionLog from '../components/transaction_log';
+import CoinDetails from '../components/coindetails';
 
 const Dashboard = () => {
   return (
@@ -23,7 +24,7 @@ const Dashboard = () => {
           >
             Overview
           </button>
-      {/*<button
+          {/*<button
             class="nav-link"
             id="wallet_tab"
             data-bs-toggle="pill"
@@ -105,7 +106,7 @@ const Dashboard = () => {
             role="tabpanel"
             aria-labelledby="coin_details"
           >
-            ...
+            <CoinDetails />
           </div>
           <div
             class="tab-pane fade"

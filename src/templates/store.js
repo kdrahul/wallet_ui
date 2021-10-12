@@ -75,7 +75,7 @@ const Store = () => {
 
   };
   return (
-    <div className="row">
+    <div className="grid row">
       {items.map((dets) => {
         return (
           <div className="col-md-4 col-lg-3 col-sm-12 col-xs-12">
